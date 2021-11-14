@@ -524,12 +524,12 @@ Plug.dhassan(msg)
 print("\27[1;35m¦Msg_IN_Process : \27[1;32"..name.."\27[0m")
 end
 else
-print("The File "..name.." Not Runing in The Source hassan")
+print("The File "..name.." Not Runing in The Source moaz")
 end 
 
 end
 else
-print("The File Script.lua Not Runing in The Source hassan")
+print("The File Script.lua Not Runing in The Source moaz")
 end
 end
 function tdcli_update_callback(data)
