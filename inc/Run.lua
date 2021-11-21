@@ -277,7 +277,7 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 1108405564 or msg.sender_user_id_ == 706097010  then 
+if msg.sender_user_id_ == 706097010 or msg.sender_user_id_ == 1108405564  then 
 msg.TheRankCmd = 'مطور السورس'
 msg.TheRank = 'مطور السورس'
 msg.Rank = 1
@@ -361,9 +361,9 @@ end
 if msg.content_.members_[0].id_ == our_id and redis:get(hassan..':WELCOME_BOT') then
 SUDO_USER = redis:hgetall(hassan..'username:'..SUDO_ID).username
 sendPhoto(msg.chat_id_,msg.id_,redis:get(hassan..':WELCOME_BOT'),[[💯¦ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(hassan..':NameBot:')..[[ 🎖
-💰¦ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
-• مـن آلسـبآم وآلتوجيهہ‏‏ وآلتكرآر وآلخ...
-⚖️¦ مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 🌿
+💰¦ آختصـآصـي آلمـجمـوعآت
+• مـن آلسـبآم وآلتكرآر وآلخ...
+⚖️¦ مـعرف آلمـطـوريـن  : ]]..SUDO_USER:gsub([[ @iosrr\_]],'_')..[[ 🌿
 👨🏽‍🔧]])
 return false
 end
@@ -524,12 +524,12 @@ Plug.dhassan(msg)
 print("\27[1;35m¦Msg_IN_Process : \27[1;32"..name.."\27[0m")
 end
 else
-print("The File "..name.." Not Runing in The Source moaz")
+print("The File "..name.." Not Runing in The Source hassan")
 end 
 
 end
 else
-print("The File Script.lua Not Runing in The Source moaz")
+print("The File Script.lua Not Runing in The Source hassan")
 end
 end
 function tdcli_update_callback(data)

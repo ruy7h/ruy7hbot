@@ -26,7 +26,7 @@ memory_free=`awk '/^Mem/ {print $4}' <(free -m)`
 if [ "$memory_free" -le 60 ]; then
 echo -e "${RED}¦
 ¦ CAUTION:${WHITEC} Your RAM size is less than 60MB.
-¦ NOW you can not install the SOURCE moaz. \n
+¦ NOW you can not install the SOURCE hassan. \n
 ¦${WHITB}¦ YOUR RAM FREE SIZE IS : ${SMAY}${memory_free}MB${CNIL}"
 exit ;
 fi
@@ -41,7 +41,7 @@ GET_INSTALL=$(redis-cli get hassan_INSTALL)
 fi
 if [ "${GET_INSTALL}" == "Yes" ]; then
 echo -e "
-${SMAY}>> ${LSAMAY}Source moaz${SMAY} is Already Installed ^_^ .\n${CNIL}"
+${SMAY}>> ${LSAMAY}Source hassan${SMAY} is Already Installed ^_^ .\n${CNIL}"
 sudo chmod +x ./run
 sudo chmod +x ./TG
 sudo ./run
@@ -102,7 +102,7 @@ echo -e "${WHITB}\n¦ Convert TimeZone To Asia/Baghdad  ... \n${CNIL}"
 sudo timedatectl set-timezone Asia/Baghdad
 sudo find . -type f -print0 | xargs -0 chmod +x
 echo -e "\n
-${SMAY}>> Installation ${LSAMAY}Source moaz${SMAY} Completed ^_^ .\n
+${SMAY}>> Installation ${LSAMAY}Source hassan${SMAY} Completed ^_^ .\n
 Now I Have Information For Your Bot  \n
 1- Enter Token Your Bot .
 2- Enter Your UserName Sudo .

@@ -15,7 +15,7 @@ if [ ! -f "./TG" ]; then
 echo -e "${RED}
 ¦
 ¦ CAUTION:${WHITB} Your Not Dwonload TG .
-¦ NOW I Run File ${Yellow}./run${WHITB} To install ${SMAY}Source moaz${CNIL} . \n
+¦ NOW I Run File ${Yellow}./run${WHITB} To install ${SMAY}Source hassan${CNIL} . \n
 \n\n"
 chmod +x ./ins
 ./ins
@@ -54,7 +54,7 @@ python3 -m ./scdlbot/scdlbot
 if [ "$1" == "R" ]; then
 while true; do
 sleep 1s
-rm -fr ./moaz
+rm -fr ./hassan
 sudo rm -fr ~/.telegram-cli
 ./TG -s ./inc/Run.lua --bot=$TOKEN
 done
