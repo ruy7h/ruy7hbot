@@ -3880,7 +3880,8 @@ end
 
 
 if MsgText[1] == "مغادره" or MsgText[1] == "ادفرني" or MsgText[1] == "احظرني" or MsgText[1] == "اطردني" then
-if msg.Admin then return "• لا استطيع طرد المدراء والادمنيه والمنشئين  \n🚶" end
+if msg.Admin then return "• لا استطيع طرد الادمنيه وفوق
+      \n🚶" end
 if not redis:get(hassan.."lock_leftgroup"..msg.chat_id_) then  return "• امر المغادره معطل من قبل اداره المجموعة  \n🚶" end
 kick_user(msg.sender_user_id_,msg.chat_id_,function(arg,data)
 if data.ID == "Ok" then
