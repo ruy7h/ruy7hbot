@@ -3904,7 +3904,7 @@ return [[
 @ruy7h - @iH7San
 -------------------
 قناة السورس
-https://t.me/IOS_Animee
+t.me/IOS_Animee
 -------------------
 ]]
 end
