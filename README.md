@@ -1,6 +1,6 @@
 # <p align="center" style="color: #14635c;" > التنصيب بكود واحد
 ```sh
-git clone https://github.com/ruy7h/ruy7hbot.git ;cd iosbot;chmod +x ins;./ins
+git clone https://github.com/ruy7h/ruy7hbot.git ;cd ruy7hbot;chmod +x ins;./ins
 ```
 ```
 » فقط أضغط على الكود ☝️ وقم بنسخه
