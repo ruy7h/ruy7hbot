@@ -3898,16 +3898,7 @@ end
 
 
 
-if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
-return [[
-مطورين السورس
-@ruy7h - @iH7San
--------------------
-قناة السورس
-t.me/IOS_Animee
--------------------
-]]
-end
+
 
 
 
