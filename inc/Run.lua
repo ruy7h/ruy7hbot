@@ -363,7 +363,7 @@ SUDO_USER = redis:hgetall(hassan..'username:'..SUDO_ID).username
 sendPhoto(msg.chat_id_,msg.id_,redis:get(hassan..':WELCOME_BOT'),[[💯¦ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(hassan..':NameBot:')..[[ 🎖
 💰¦ آختصـآصـي آلمـجمـوعآت
 • مـن آلسـبآم وآلتكرآر وآلخ...
-⚖️¦ مـعرف آلمـطـوريـن  : ]]..SUDO_USER:gsub([[ @iosrr\_]],'_')..[[ 🌿
+⚖️¦ مـعرف آلمـطـوريـن  : ]]..SUDO_USER:gsub([[ @ruy7h\_]],'_')..[[ 🌿
 👨🏽‍🔧]])
 return false
 end

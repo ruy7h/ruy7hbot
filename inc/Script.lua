@@ -135,7 +135,7 @@ end
 
 if MsgText[1] == "تعديلاتي" or MsgText[1] == "سحكاتي" then    
 local numvv = redis:get(hassan..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0
-return "- عدد سحكاتك هو : "..numvv
+return "- عدد تعديلاتك هو : "..numvv
 end
 
 
@@ -294,9 +294,7 @@ return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد المنشئ
 elseif redis:sismember(hassan..'owners:'..arg.ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد المدير\n") 
 elseif redis:sismember(hassan..'admins:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد الادمن\n") 
-elseif  redis:sismember(hassan..'whitelist:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد المميز\n") 
+return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد الادمن\n")  
 end
 GetChatMember(arg.ChatID,UserID,function(arg,data)
 if data.status_.ID == "ChatMemberStatusMember" then
@@ -335,9 +333,7 @@ return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد المنشئ
 elseif redis:sismember(hassan..'owners:'..arg.ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد المدير\n") 
 elseif redis:sismember(hassan..'admins:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد الادمن\n") 
-elseif  redis:sismember(hassan..'whitelist:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد المميز\n") 
+return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد الادمن\n")  
 end
 GetChatMember(arg.ChatID,our_id,function(arg,data)
 if data.status_.ID == "ChatMemberStatusEditor" then 
@@ -919,8 +915,6 @@ elseif redis:sismember(hassan..'owners:'..arg.ChatID,UserID) then
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد المدير\n") 
 elseif redis:sismember(hassan..'admins:'..arg.ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد الادمن\n") 
-elseif  redis:sismember(hassan..'whitelist:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد المميز\n") 
 end
 kick_user(UserID,arg.ChatID,function(arg,data)
 if data.ID == "Error" and data.code_ == 400 then
@@ -958,8 +952,6 @@ elseif redis:sismember(hassan..'owners:'..arg.ChatID,UserID) then
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد المدير\n") 
 elseif redis:sismember(hassan..'admins:'..arg.ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد الادمن\n") 
-elseif  redis:sismember(hassan..'whitelist:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد المميز\n") 
 end
 kick_user(UserID,arg.ChatID,function(arg,data)
 if data.ID == "Error" and data.code_ == 400 then
@@ -1003,8 +995,6 @@ elseif redis:sismember(hassan..'owners:'..arg.ChatID,UserID) then
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر المدير\n") 
 elseif redis:sismember(hassan..'admins:'..arg.ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر الادمن\n") 
-elseif  redis:sismember(hassan..'whitelist:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر المميز\n") 
 end
 
 kick_user(UserID,arg.ChatID,function(arg,data)
@@ -1236,9 +1226,7 @@ return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المنشئ ا�
 elseif redis:sismember(hassan..'owners:'..arg.ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المدير\n") 
 elseif redis:sismember(hassan..'admins:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم الادمن\n") 
-elseif  redis:sismember(hassan..'whitelist:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المميز\n") 
+return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم الادمن\n")  
 end
 GetUserID(UserID,function(arg,data)
 USERNAME = ResolveUserName(data)
@@ -1276,8 +1264,6 @@ elseif redis:sismember(hassan..'owners:'..arg.ChatID,UserID) then
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المدير\n") 
 elseif redis:sismember(hassan..'admins:'..arg.ChatID,UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم الادمن\n") 
-elseif  redis:sismember(hassan..'whitelist:'..arg.ChatID,UserID) then 
-return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المميز\n") 
 end
 if redis:sismember(hassan..'is_silent_users:'..arg.ChatID,UserID) then 
 sendMsg(arg.ChatID,arg.MsgID,"• المستخدم  » ❪ "..NameUser.." ❫ \n• تم بالتأكيد كتمه  من المجموعه") 
@@ -3097,7 +3083,7 @@ end
 if MsgText[1] == "رتبتي" then return '🎫*¦* رتبتك » '..msg.TheRank..'\n➖' end
 
 ----------------- استقبال الرسائل ---------------
-if MsgText[1] == "الغاء الامر ✖️" or MsgText[1] == "الغاء" then
+if MsgText[1] == "كنسل ✖️" or MsgText[1] == "الغاء" then
 if not msg.Admin then return "• هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
 redis:del(hassan..'welcom:witting'..msg.chat_id_..msg.sender_user_id_,
 hassan..'rulse:witting'..msg.chat_id_..msg.sender_user_id_,
@@ -3200,7 +3186,7 @@ end
 return false
 end
 
-if (MsgText[1]=="تيست" or MsgText[1]=="test") then 
+if (MsgText[1]=="تست" or MsgText[1]=="test") then 
 if not msg.SudoBase then return"• هذا الامر يخص {المطور الاساسي} فقط  \n" end
 return "💯 البوت شـغــال " 
 end
@@ -3562,7 +3548,7 @@ local text = [[ اهلا بك في قائمة اوامر الاداريين
  ↢ رفع - تنزيل مدير
  ↢ رفع - تنزيل ادمن
  ↢ رفع - تنزيل مميز
- ↢ تنزيل الكل - لازاله جميع الرتب اعلاه
+ ↢ تنزيل الكل بالرد،بالمعرف،بالايدي - لتنزيل الشخص من جميع الرتب اعلاه
 
 اوامر المسح
 
@@ -4084,8 +4070,8 @@ end,{msg=msg})
 end
 else
 if not redis:get(hassan..'lock_twasel') then
-if msg.forward_info_ or msg.content_.ID == "MessageSticker" or msg.content_.ID == "MessageUnsupported" or msg.content_.ID == "MessageDocument" then
-return sendMsg(msg.chat_id_,msg.id_,"• عذرآ لآ يمـگنگ آرسـآل {ملف , توجيه‌ , مـلصـق , فديو گآم} ❗️")
+if msg.forward_info_ or msg.content_.ID == "MessageDocument" or msg.content_.ID == "MessageDocument" or msg.content_.ID == "MessageDocument" then
+return sendMsg(msg.chat_id_,msg.id_,"• عذرآ لآ يمـگنگ آرسـآل {ملف} ❗️")
 end
 SUDO_USER = redis:hgetall(hassan..'username:'..SUDO_ID).username
 if SUDO_USER:match('@[%a%d_]+') then 
@@ -4124,7 +4110,7 @@ return false
 end
 
 local CountRdod = redis:scard(hassan..':ReplayRandom:'..klma) or 1
-local CountRdod2 = 10 - tonumber(CountRdod)
+local CountRdod2 = 20 - tonumber(CountRdod)
 local CountRdod = 9 - tonumber(CountRdod)
 if CountRdod2 == 0 then 
 redis:del(hassan..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_)
@@ -4198,7 +4184,7 @@ return false
 end
 
 local CountRdod = redis:scard(hassan..':ReplayRandom:'..msg.chat_id_..":"..klma) or 1
-local CountRdod2 = 10 - tonumber(CountRdod)
+local CountRdod2 = 20 - tonumber(CountRdod)
 local CountRdod = 9 - tonumber(CountRdod)
 if CountRdod2 == 0 then 
 redis:del(hassan..'addrdRandom1:'..msg.chat_id_..msg.sender_user_id_)
@@ -4390,9 +4376,9 @@ ResAdmin = UploadAdmin(msg.chat_id_,UserID,msg.text)
 if ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: not enough rights"}' then
 sendMsg(msg.chat_id_,msg.id_,"• عذرا البوت ليس لديه صلاحيه رفع مشرفين في المجموعه \n•") 
 elseif ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: can\'t remove chat owner"}' then
-sendMsg(msg.chat_id_,msg.id_,"• عذرا لا يمكنني التحكم بصلاحيات المنشئ للمجموعه. \n•") 
+sendMsg(msg.chat_id_,msg.id_,"• عذرا لا يمكنني التحكم بصلاحيات المشرف للمجموعه. \n•") 
 elseif ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: CHAT_ADMIN_REQUIRED"}' then
-sendMsg(msg.chat_id_,msg.id_,"• عذرا لا يمكنني التحكم بصلاحيات المشرف مرفوع من قبل منشئ اخر . \n•") 
+sendMsg(msg.chat_id_,msg.id_,"• عذرا لا يمكنني التحكم بصلاحيات المشرف مرفوع من قبل مشرف اخر . \n•") 
 elseif ResAdmin == '{"ok":true,"result":true}' then
 ChangeNikname(msg.chat_id_,UserID,Nikname)
 redis:sadd(hassan..'admins:'..msg.chat_id_,UserID)
@@ -4903,7 +4889,7 @@ end
 
 if msg.text and msg.type == "channel" then
 if msg.text:match("^"..Bot_Name.." غادر$") and (msg.SudoBase or msg.SudoUser) then
-sendMsg(msg.chat_id_,msg.id_,'اوك باي 😢💔💯') 
+sendMsg(msg.chat_id_,msg.id_,'الله يلعن من يقعد عندكم 😢💔') 
 rem_data_group(msg.chat_id_)
 StatusLeft(msg.chat_id_,our_id)
 return false
@@ -5947,7 +5933,7 @@ local ss97 = {
 "طالع مموجود 😒","هااا شنوو اكو حاته بالكروب وصحت عليه  😍💕","انت مو قبل يومين غلطت عليه؟  😒",
 "راجع المكتب حبيبي عبالك ["..Bot_Name.."] سهل تحجي ويا 😒","ياعيون ["..Bot_Name.."] أمرني 😍",
 "لك دبدل ملابسي اطلع برااااا 😵😡 ناس متستحي","سويت هواي شغلات سخيفه بحياتي بس عمري مصحت على واحد وكلتله انجب 😑",
-"مشغول ويا ضلعتي  ☺️","مازا تريد منه 😌"
+"خلاص لا تصارخ شتبي 😏"
 }
 local bs = {
 "مابوس 🌚💔",
@@ -6001,7 +5987,7 @@ else
 return sendMsg(msg.chat_id_,0,callback_Text) 
 end
 elseif Text== "😒" and not is_sudo then return sendMsg(msg.chat_id_,msg.id_,"وخر يا نفسيه")
-elseif Text== "اكرهك"  then return sendMsg(msg.chat_id_,msg.id_,"مور")
+elseif Text== "اكرهك"  then return sendMsg(msg.chat_id_,msg.id_,"شعور متبادل والله 😒")
 elseif Text== "سلام" or Text== "السلام عليكم" or Text== "سلام عليكم" or Text=="سلامن عليكم" or Text=="السلامن عليكم" then 
 return sendMsg(msg.chat_id_,msg.id_,"وعليكم السلام اغاتي🌝👋" )
 elseif Text== "اوامر التحشيش"  then return sendMsg(msg.chat_id_,msg.id_,"🧙‍♂┇آهــلا بك عزيزي\n📬┇إليـك اوامر التحشيش ⇊ \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n🕊┇اوامر الحيوانات\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n🐶┇رفع ↫ تنزيل ↫ جلب\n🐴┇رفع ↫ تنزيل ↫ مطي\n🐐┇رفع ↫ تنزيل ↫ صخل\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n👨‍✈️┇اوامر القادة ⇊ \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n🌀┇رفع ↫ تنزيل ↫ نقيب\n🌀┇رفع ↫ تنزيل ↫ شرطي\n🌀┇رفع ↫ تنزيل ↫ عريف\n🌀┇رفع ↫ تنزيل ↫ ضابط\n🌀┇رفع ↫ تنزيل ↫ ملازم\n🌀┇رفع ↫ تنزيل ↫ عقيد\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n📿┇اوامر الدين ⇊ \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n💠┇رفع ↫ تنزيل ↫ مؤمن\n💠┇رفع ↫ تنزيل ↫ امام\n💠┇رفع ↫ تنزيل ↫ شيخ\n💠┇رفع ↫ تنزيل ↫ سيد\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n😎┇اوامر الهيبه ⇊ \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n🔘┇رفع ↫ تنزيل ↫ اثول\n🔘┇رفع ↫ تنزيل ↫ زاحف\n🔘┇رفع ↫ تنزيل ↫ بكلبي\n🔘┇رفع ↫ تنزيل ↫ تاج\n🔘┇رفع ↫ تنزيل ↫ مرتي\n🚹┇زواج\n🚻┇طلاك\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ")
@@ -6035,14 +6021,14 @@ elseif Text== "رفع اثول"  then return sendMsg(msg.chat_id_,msg.id_,"🙋�
 elseif Text== "تنزيل اثول"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم تنزيل العضو من ثولان الكروب✔️\n╽تمت الزاله من قامة الثولان😹\n✓️")
 elseif Text== "رفع زاحف"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم رفع العضو زاحف الگروب🤪بنجاح✔️\n╽تمت إضافته إلى قائمه الزواحف😹\n✓️")
 elseif Text== "تنزيل زاحف"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم تنزيل المتهم زاحف بنجاح✔️\n╽تمت ازالته من قائمه الزواحف😹\n✓️")
-elseif Text== "رفع بكلبي"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم رفع العضو داخل كلبك✔️\n╽تمت ترقيته بنجاح 😻??👋🏻\n✓️")
-elseif Text== "تنزيل من كلبي"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم تنزيل من داخل قلبك✔️\n╽تمت ازالته من قائمه القلوب 😹💔\n✓️")
+elseif Text== "رفع بقلبي"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم رفع العضو داخل كلبك✔️\n╽تمت ترقيته بنجاح 😻??👋🏻\n✓️")
+elseif Text== "تنزيل من قلبي"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم تنزيل من داخل قلبك✔️\n╽تمت ازالته من قائمه القلوب 😹💔\n✓️")
 elseif Text== "رفع تاج"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهـلا عزيزي\n🎫│تم رفع صديقك تـ👑ـاج بنجاح ✔️ \n╽اصبح خط احمر ❗️ \n✓️")
 elseif Text== "تنزيل تاج"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهـلا عزيزي\n🎫│تم تنزيل العضو المهتلف\n╽من قائمة ألتـ👑ـاج بنجاح ✔️😹💔\n✓️")
 elseif Text== "رفع مرتي"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم رفع العضو مرتك بنجاح✔️\nالآن يمكنكم أخذ راحتكم🤤😉\n✓️")
 elseif Text== "تنزيل مرتي"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم تنزيل الجكمه مرتك بنجاح✔️\nالآن انتم مفترقان☹️💔\n✓️")
 elseif Text== "زواج"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم زواجكم الاثنين بنجاح✔️\n╽الآن يمكنكم أخذ راحتكم🤤😉\n✓️")
-elseif Text== "طلاك"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم طلاك العضو بنجاح✔️\n╽الآن هو مطلك امشي اطلع برا 😹💔\n✓️")
+elseif Text== "طلاق"  then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم طلاك العضو بنجاح✔️\n╽الآن هو مطلك امشي اطلع برا 😹💔\n✓️")
 elseif Text== "اقرالي دعاء" then 
 return sendMsg(msg.chat_id_,msg.id_,"اللهم عذب المدرسين 😢 منهم الاحياء والاموات 😭🔥 اللهم عذب ام الانكليزي 😭💔 وكهربها بلتيار الرئيسي 😇 اللهم عذب ام الرياضيات وحولها الى غساله بطانيات 🙊 اللهم عذب ام الاسلاميه واجعلها بائعة الشاميه 😭 اللهم عذب ام العربي وحولها الى بائعه البلبي اللهم عذب ام الجغرافيه واجعلها كلدجاجه الحافية اللهم عذب ام التاريخ وزحلقها بقشره من البطيخ وارسلها الى المريخ اللهم عذب ام الاحياء واجعلها كل مومياء اللهم عذب المعاون اقتله بلمدرسه بهاون 😂😂😂")
 elseif Text== "ايديي" or Text=="ايدي 🆔" then 

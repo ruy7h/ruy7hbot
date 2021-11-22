@@ -592,7 +592,7 @@ name = string.gsub(name,'509','500+9')
 return 'اجـب على المسئله الحسابيه التالية ↤ {* '..name..' *}'
 end
 
-if MsgText[1] == 'محيبس' or MsgText[1] == 'بات' then   
+if MsgText[1] == 'محيبس' or MsgText[1] == 'بات' or MsgText[1] == 'طفش' then   
 Num = math.random(1,6)
 redis:set(hassan.."GAMES"..msg.chat_id_,Num) 
 TEST = [[

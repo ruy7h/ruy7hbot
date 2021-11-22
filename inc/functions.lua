@@ -145,8 +145,8 @@ local UserJoin = tonumber(UserJoin)
 if Text == "CheckRobotJoin:" then
 if CheckUserAdmin(msg) or UserID == UserJoin then
 Restrict(ChatID,UserJoin,2)
-EditMsg(ChatID,dataid,"- تم فك التقييد بنجاح والتاكد بانك لست روبوت ❤️")
-answerCallbackQuery(data.id_,"- تم فك التقييد بنجاح والتاكد بانك لست روبوت ❤️",true)
+EditMsg(ChatID,dataid,"- تم فك التقييد بنجاح والتاكد بانك لست بوت ❤️")
+answerCallbackQuery(data.id_,"- تم فك التقييد بنجاح والتاكد بانك لست بوت ❤️",true)
 else
 answerCallbackQuery(data.id_,"عذرا انت لست الشخص المقيد او لا يوجد لديك صلاحيه الادارة , نعتذر منك",true)	
 end
@@ -207,7 +207,7 @@ textMD = [[
  ↢ رفع - تنزيل مدير
  ↢ رفع - تنزيل ادمن
  ↢ رفع - تنزيل مميز
- ↢ تنزيل الكل - لازاله جميع الرتب اعلاه
+ ↢ تنزيل الكل بالرد،بالمعرف،بالايدي - لتنزيل الشخص من جميع الرتب اعلاه
 
 اوامر المسح
 
@@ -632,6 +632,7 @@ local Cominnt = {
 "وفالله 😔💘",
 "فدوا للجمال 😉💘",
 "صورتك ما تعجبني 😒",
+"يع شذي الصوره ؟😟",
 }
 return Cominnt[math.random(#Cominnt)] 
 end
@@ -1398,13 +1399,13 @@ end
 function Get_Ttl(msgs)
 local MsgShow = '' 
 local NumMsg = tonumber(msgs)
-if NumMsg < 80 then 
+if NumMsg < 100 then 
 MsgShow = 'غير متفاعل ✘' 
-elseif NumMsg < 300 then
+elseif NumMsg < 500 then
 MsgShow = 'ضعيف 🥀' 
-elseif NumMsg < 900 then 
+elseif NumMsg < 1000 then 
 MsgShow = 'متوسط 🎋' 
-elseif NumMsg < 5000 then 
+elseif NumMsg < 6000 then 
 MsgShow = 'متفاعل 💐' 
 elseif NumMsg < 9000 then 
 MsgShow = 'قوي جدا ⚡️' 
@@ -1802,7 +1803,7 @@ local info = redis:hgetall(hassan..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/IOS_Animee) l » (`' ..v.. '`) \n'
 end 
 end 
 if utf8.len(message) > 4096 then
@@ -1832,7 +1833,7 @@ local info = redis:hgetall(hassan..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/TH3bs) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/IOS_Animee) l » (`' ..v.. '`) \n'
 end
 end 
 if utf8.len(message) > 4096 then
@@ -1875,7 +1876,7 @@ for k,v in pairs(list) do
 filterlist = filterlist..'*'..k..'* -  '..Flter_Markdown(v)..'\n'
 end
 if utf8.len(filterlist) > 4096 then
-return "- لا يمكن عرض الممنوعين بسبب القائمه كبيره جدا ."
+return "- لا يمكن عرض قائمه المنع بسبب القائمه كبيره جدا ."
 else
 return filterlist
 end
@@ -2301,8 +2302,6 @@ elseif redis:sismember(hassan..'owners:'..ChatID,UserID) then
 return sendMsg(ChatID,MsgID,"- لا يمكنك تقييد المدير ؛") 
 elseif redis:sismember(hassan..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"- لا يمكنك تقييد الادمن ؛") 
-elseif  redis:sismember(hassan..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"- لا يمكنك تقييد المميز ؛") 
 end
 Restrict(ChatID,UserID,1)
 redis:hset(hassan..'username:'..UserID, 'username', Resolv)
@@ -2459,9 +2458,7 @@ return sendMsg(ChatID,MsgID,"- لا يمكنك حظر المالك ؛")
 elseif redis:sismember(hassan..'owners:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"- لا يمكنك حظر المدير ؛") 
 elseif redis:sismember(hassan..'admins:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"- لا يمكنك حظر الادمن ؛")
-elseif  redis:sismember(hassan..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"- لا يمكنك حظر المميز ؛") 
+return sendMsg(ChatID,MsgID,"- لا يمكنك حظر الادمن ؛") 
 end
 if Check_Banned(ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"- المستخدم  » ❪ "..NameUser.." ❫ \n-  تم بالتاكيد حظره  من المجموعه ✓") 
@@ -2491,8 +2488,6 @@ elseif redis:sismember(hassan..'owners:'..ChatID,UserID) then
 return sendMsg(ChatID,MsgID,"- لا يمكنك طرد المدير ؛") 
 elseif redis:sismember(hassan..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"- لا يمكنك طرد الادمن ؛") 
-elseif  redis:sismember(hassan..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"- لا يمكنك طرد المميز ؛") 
 end
 kick_user(UserID, ChatID,function(arg,data)
 if data.ID == "Error" and data.code_ == 400 then
@@ -2536,8 +2531,6 @@ elseif redis:sismember(hassan..'owners:'..ChatID,UserID) then
 return sendMsg(ChatID,MsgID,"- لا يمكنك كتم المدير ؛") 
 elseif redis:sismember(hassan..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"- لا يمكنك كتم الادمن ؛") 
-elseif  redis:sismember(hassan..'whitelist:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"- لا يمكنك كتم المميز ؛") 
 end
 if redis:sismember(hassan..'admins:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"• لا يمكنك كتم المدراء او الادمنيه") 
