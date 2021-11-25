@@ -3242,6 +3242,19 @@ return '• لا يوجد ردود ليتم مسحها \n❕'
 end
 end
 
+
+if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
+    return [[
+     ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉     
+    👨🏻‍✈️╽[مطور السـورس](t.me/ruy7h)
+    📡╿[قناة السورس](t.me/IOS_Animee)
+    📨╿[قروب السورس](t.me/IOS_Anime)
+    
+     ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+    
+    ]]
+    end
+
 if MsgText[1] == 'مسح' and MsgText[2] == 'الردود العامه' then
 if not msg.SudoBase then return"♨️ للمطورين فقط ! 💯" end
 local names 	= redis:exists(hassan..'replay:all')
